@@ -1,0 +1,17 @@
+
+{% extends 'app/base.html' %}
+{% block title %}ADD CLASS {% endblock title %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+<form method="POST">
+    <h2>ADD CLASS</h2>
+	{% csrf_token %}
+    <div class="container">
+        {{form|crispy}}
+    {% if messages %}
+    <ul class="message list">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+    {% endif %}
+	<button type="submit" class="btn btn-dark">Submit</button>
+</div>
+</form>
+{% endblock page_content %}
